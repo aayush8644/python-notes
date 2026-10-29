@@ -1,0 +1,160 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOcRjx5Hysj4cXWuhguj//q",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/aayush8644/python-notes/blob/main/python%20classes%20%26inheritance.ipyn\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**python Classes & Inheritance**"
+      ],
+      "metadata": {
+        "id": "wHfFBEpYryMj"
+      }
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "volH3IGZrNbR"
+      },
+      "outputs": [],
+      "source": [
+        "class MyNewClass:\n",
+        "    pass\n",
+        "\n",
+        "# Class Instantiation\n",
+        "my = MyNewClass()\n",
+        "\n",
+        "#Constructors:\n",
+        "class Animal:\n",
+        "    def __init__(self, voice):\n",
+        "        self.voice = voice\n",
+        "\n",
+        "cat = Animal('Meow')\n",
+        "print(cat.voice)    # => Meow\n",
+        "\n",
+        "dog = Animal('Woof')\n",
+        "print(dog.voice)    # => Woof\n",
+        "\n",
+        "#Method\n",
+        "class Dog:\n",
+        "\n",
+        "    # Method of the class\n",
+        "    def bark(self):\n",
+        "        print(\"Ham-Ham\")\n",
+        "\n",
+        "charlie = Dog()\n",
+        "charlie.bark()   # => \"Ham-Ham\"\n",
+        "\n",
+        "#Class Variables\n",
+        "class MyClass:\n",
+        "    class_variable = \"A class variable!\"\n",
+        "\n",
+        "# => A class variable!\n",
+        "print(MyClass.class_variable)\n",
+        "\n",
+        "x = MyClass()\n",
+        "\n",
+        "# => A class variable!\n",
+        "print(x.class_variable)\n",
+        "\n",
+        "#Super() Function\n",
+        "class ParentClass:\n",
+        "    def print_test(self):\n",
+        "        print(\"Parent Method\")\n",
+        "\n",
+        "class ChildClass(ParentClass):\n",
+        "    def print_test(self):\n",
+        "        print(\"Child Method\")\n",
+        "        # Calls the parent's print_test()\n",
+        "        super().print_test()\n",
+        "\n",
+        ">>>child_instance = ChildClass()\n",
+        ">>> child_instance.print_test()\n",
+        "Child Method\n",
+        "Parent Method\n",
+        "\n",
+        "#repr() method\n",
+        "class Employee:\n",
+        "    def __init__(self, name):\n",
+        "        self.name = name\n",
+        "\n",
+        "    def __repr__(self):\n",
+        "        return self.name\n",
+        "\n",
+        "john = Employee('John')\n",
+        "print(john)  # => John\n",
+        "\n",
+        "#User-defined exceptions\n",
+        "class CustomError(Exception):\n",
+        "    pass\n",
+        "\n",
+        "#Polymorphism\n",
+        "class ParentClass:\n",
+        "    def print_self(self):\n",
+        "        print('A')\n",
+        "\n",
+        "class ChildClass(ParentClass):\n",
+        "    def print_self(self):\n",
+        "        print('B')\n",
+        "\n",
+        "obj_A = ParentClass()\n",
+        "obj_B = ChildClass()\n",
+        "\n",
+        "obj_A.print_self() # => A\n",
+        "obj_B.print_self() # => B\n",
+        "\n",
+        "#Overriding\n",
+        "class ParentClass:\n",
+        "    def print_self(self):\n",
+        "        print(\"Parent\")\n",
+        "\n",
+        "class ChildClass(ParentClass):\n",
+        "    def print_self(self):\n",
+        "        print(\"Child\")\n",
+        "\n",
+        "child_instance = ChildClass()\n",
+        "child_instance.print_self() # => Child\n",
+        "\n",
+        "#Inheritance\n",
+        "class Animal:\n",
+        "    def __init__(self, name, legs):\n",
+        "        self.name = name\n",
+        "        self.legs = legs\n",
+        "\n",
+        "class Dog(Animal):\n",
+        "    def sound(self):\n",
+        "        print(\"Woof!\")\n",
+        "\n",
+        "Yoki = Dog(\"Yoki\", 4)\n",
+        "print(Yoki.name) # => YOKI\n",
+        "print(Yoki.legs) # => 4\n",
+        "Yoki.sound()     # => Woof!"
+      ]
+    }
+  ]
+}
