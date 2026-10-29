@@ -1,0 +1,100 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMO7y3AB2o45cTjdjNcjIk0",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/aayush8644/python-notes/blob/main/File%20handling.ipyn\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**Python File Handling**"
+      ],
+      "metadata": {
+        "id": "LoDQ0eEwOShS"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "\n",
+        "#Read file:\n",
+        "#Line by line:\n",
+        "with open(\"myfile.txt\") as file:\n",
+        "    for line in file:\n",
+        "        print(line)\n",
+        "\n",
+        "#With line number:\n",
+        "file = open('myfile.txt', 'r')\n",
+        "for i, line in enumerate(file, start=1):\n",
+        "    print(\"Number %s: %s\" % (i, line))\n",
+        "\n",
+        "\n",
+        "#Write a string:\n",
+        "contents = {\"aa\": 12, \"bb\": 21}\n",
+        "with open(\"myfile1.txt\", \"w+\") as file:\n",
+        "    file.write(str(contents))\n",
+        "\n",
+        "#Read a string:\n",
+        "with open('myfile1.txt', \"r+\") as file:\n",
+        "    contents = file.read()\n",
+        "print(contents)\n",
+        "\n",
+        "\n",
+        "#Write an object:\n",
+        "contents = {\"aa\": 12, \"bb\": 21}\n",
+        "with open(\"myfile2.txt\", \"w+\") as file:\n",
+        "    file.write(json.dumps(contents))\n",
+        "\n",
+        "#Read an object:\n",
+        "\n",
+        "with open('myfile2.txt', \"r+\") as file:\n",
+        "    contents = json.load(file)\n",
+        "print(contents)\n",
+        "\n",
+        "#Delete a File:\n",
+        "import os\n",
+        "os.remove(\"myfile.txt\")\n",
+        "\n",
+        "#Check and Delete:\n",
+        "import os\n",
+        "if os.path.exists(\"myfile.txt\"):\n",
+        "    os.remove(\"myfile.txt\")\n",
+        "else:\n",
+        "    print(\"The file does not exist\")\n",
+        "\n",
+        "#Delete Folder:\n",
+        "import os\n",
+        "os.rmdir(\"myfolder\")\n",
+        "\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "wnqjPthJKus4"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
